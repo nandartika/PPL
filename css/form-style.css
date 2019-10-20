@@ -1,0 +1,61 @@
+#tabel{
+    margin-top:5px; 
+    margin-left:140px;
+    background-color:#666666;
+}
+
+#tabel1{
+    margin-top:5px; 
+    background-color:#666666;
+}
+
+
+.ruangan{
+    background-color:#00ff00; 
+    text-align:center; 
+    padding: 4px; 
+    width: 45px; 
+}
+
+.ruangan:hover{
+    cursor:pointer;
+}
+
+.ruangan1{
+    background-color:red; 
+    text-align:center; 
+    padding: 4px; 
+    width: 45px; 
+    height: 30px;
+}
+
+.ruangan2{
+    background-color: #ffff00; 
+    text-align:center; 
+    padding: 4px; 
+    width: 45px; 
+    height: 30px;
+
+}
+
+.ruangan3{
+    background-color:#00ff00; 
+    text-align:center; 
+    padding: 4px; 
+    width: 45px; 
+    height: 30px;
+
+}
+
+.ruangan4{
+    background-color:#008ae6; 
+    text-align:center; 
+    padding: 4px; 
+    width: 45px; 
+    height: 30px;
+
+}
+
+td.selected {
+  background-color: red;
+}
