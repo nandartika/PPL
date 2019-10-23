@@ -9,7 +9,7 @@ echo "Overview";
 $isi=ob_get_contents();
 ob_end_clean();
 
-
+session_start();
 include('head.php');
 if(!isset($_SESSION['nim'])){
   header("location: loginUser.php");
