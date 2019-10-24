@@ -165,8 +165,25 @@ source.style.backgroundColor=originalcolor
           ?>
 
           <div>
-            <input type="checkbox" name="sk" value=""> <a href="#">Baca Syarat dan Ketentuan Peminjaman</a>
-          </div>
+            <input type="checkbox" name="sk" value=""><a href="#contohModalKecil" data-toggle="modal" data-target="#contohModalKecil">Baca Syarat dan Ketentuan Peminjaman</a>
+			<div class="modal fade" id="contohModalKecil" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title" id="myModalLabel">Syarat & Ketentuan</h4>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						</div>
+						<div class="modal-body">
+							1. Mahasiswa atau karyawan aktif.<br> 
+							2. Penggunaan ruangan hanya untuk kegiatan internal kampus UPNVJ.<br>
+							3. Penggunaan ruangan hanya bisa sampai pukul 19.00.
+							<br>4. Segala kegiatan yang berlangsung dibawah pengawasan Universitas.
+						</div>
+					</div>
+				</div>
+			</div>
+ 
+		  </div>
           <br>
           
 
