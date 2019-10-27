@@ -45,7 +45,7 @@ include('head.php');
           }
 
           if (count($errors) == 0) {
-            $query = mysqli_query($db,"SELECT * FROM user WHERE NIM='$nim' AND password='$password'");
+            $query = mysqli_query($db,"SELECT * FROM t_user WHERE f_NIM='$nim' AND f_password='$password'");
             $cek=mysqli_num_rows($query);
             if ($cek == 1) {
               $data = mysqli_fetch_assoc($query);

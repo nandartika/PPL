@@ -28,47 +28,11 @@ include('config.php');
   <link rel="stylesheet" href="css/form-style.css">
   <script src="jquery-3.4.1.js"></script>
 
-<script type="text/javascript">
-
-/***********************************************
-* Highlight Table Cells Script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
-* Visit http://www.dynamicDrive.com for hundreds of DHTML scripts
-* Please keep this notice intact
-***********************************************/
-
-//Specify highlight behavior. "TD" to highlight table cells, "TR" to highlight the entire row:
-var highlightbehavior="TD"
-
-var ns6=document.getElementById&&!document.all
-var ie=document.all
-
-function changeto(e,highlightcolor){
-source=ie? event.srcElement : e.target
-if (source.tagName=="TABLE")
-return
-while(source.tagName!=highlightbehavior && source.tagName!="HTML")
-source=ns6? source.parentNode : source.parentElement
-if (source.style.backgroundColor!=highlightcolor&&source.id!="ignore")
-source.style.backgroundColor=highlightcolor
-}
-
-function contains_ns6(master, slave) { //check if slave is contained by master
-while (slave.parentNode)
-if ((slave = slave.parentNode) == master)
-return true;
-return false;
-}
-
-function changeback(e,originalcolor){
-if (ie&&(event.fromElement.contains(event.toElement)||source.contains(event.toElement)||source.id=="ignore")||source.tagName=="TABLE")
-return
-else if (ns6&&(contains_ns6(source, e.relatedTarget)||source.id=="ignore"))
-return
-if (ie&&event.toElement!=source||ns6&&e.relatedTarget!=source)
-source.style.backgroundColor=originalcolor
-}
-
-</script>
+<style type="text/css">
+  #apaja:focus{
+    background-color: red;
+  }
+</style>
 
 </head>
 
@@ -128,7 +92,7 @@ source.style.backgroundColor=originalcolor
           </table>
 
           <?php
-          $query = "SELECT ruang.lantai, ruang.no_ruang, status.status from ruang left join status on ruang.id_ruang=status.id_ruang order by ruang.lantai desc";
+          $query = "SELECT a.f_lantai, a.f_noRuang, b.f_statusPeminjaman FROM t_ruang AS a LEFT JOIN t_statusruang AS b ON a.f_idRuang=b.f_idRuang ORDER BY a.f_lantai DESC";
           $result = mysqli_query($db, $query);
           $prevLantai = null;
           $roomColor = null;
@@ -156,11 +120,9 @@ source.style.backgroundColor=originalcolor
             } else if ($status == 3) {
               $roomColor = "orange";
             //ruang tersedia
-            } else {
-              $roomColor = "lightgreen";
             }
 
-            echo "<td><button type='button' style='background-color:".$roomColor."'>".$lantai."0".$no_ruang."</button></td>";
+            echo "<td><button type='button' style='background-color:".$roomColor."' id='pilih'>".$lantai."0".$no_ruang."</button></td>";
           }
 
           echo"</table>";
@@ -194,7 +156,11 @@ source.style.backgroundColor=originalcolor
         
         </form>
 
-
+<?php
+  for ($i=0; $i < 5; $i++) { 
+  ?>
+    <button id="apaja">Tombol <?php echo $i; ?></button>
+  <?php } ?>
       </div>
       <!-- /.container-fluid -->
 

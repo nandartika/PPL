@@ -59,3 +59,11 @@
 td.selected {
   background-color: red;
 }
+
+#pilih{
+    background-color: lightgreen;
+}
+
+#pilih:focus{
+    background-color: blue;
+}
