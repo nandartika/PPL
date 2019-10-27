@@ -1,4 +1,5 @@
 <?php
+session_start();
 ob_start();
 echo "Form Peminjaman";
 $isi=ob_get_contents();
@@ -101,12 +102,12 @@ source.style.backgroundColor=originalcolor
             <tr>
               <td>NIM</td>
               <td>:</td>
-              <td><input type="text" name="nim" value="<?php echo $_SESSION['nim'];  ?>" disabled></td>
+              <td><input type="text" readonly="readonly" name="nim" value="<?php echo $_SESSION['nim']; ?>" ></td>
             </tr>
             <tr>
               <td>Nama</td>
               <td>:</td>
-              <td><input type="text" name="nama" value="<?php echo $_SESSION['nama'];  ?>" disabled></td>
+              <td><input type="text" readonly="readonly" name="nama" value="<?php echo $_SESSION['nama']; ?>" </td>
             </tr>
             <tr>
               <td>Alasan Peminjaman</td>
@@ -123,6 +124,7 @@ source.style.backgroundColor=originalcolor
               <td>:</td>
               <td><input type="date" name="tanggal"> Waktu Mulai : <input type="time" name="mulai" min="08:00" max="19:00" step="1800"> Waktu Selesai : <input type="time" name="selesai" step="1800"></td>
             </tr>
+			<input type="hidden"  name="status" value="waiting" </td>
           </table>
 
           <?php
@@ -187,7 +189,7 @@ source.style.backgroundColor=originalcolor
           <br>
           
 
-          <button type="button" name="kirim" class="btn btn-primary" style="width:10%;background-color:#008000;border:none;">KIRIM</button>
+          <button type="submit" name="kirim" class="btn btn-primary" style="width:10%;background-color:#008000;border:none;">KIRIM</button>
         
         
         </form>
