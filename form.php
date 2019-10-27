@@ -1,5 +1,4 @@
 <?php
-session_start();
 ob_start();
 echo "Form Peminjaman";
 $isi=ob_get_contents();
@@ -26,13 +25,7 @@ include('config.php');
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
   <link rel="stylesheet" href="css/form-style.css">
-  <script src="jquery-3.4.1.js"></script>
-
-<style type="text/css">
-  #apaja:focus{
-    background-color: red;
-  }
-</style>
+  <script src="jquery-3.4.1.js"></script>S
 
 </head>
 
@@ -66,12 +59,12 @@ include('config.php');
             <tr>
               <td>NIM</td>
               <td>:</td>
-              <td><input type="text" readonly="readonly" name="nim" value="<?php echo $_SESSION['nim']; ?>" ></td>
+              <td><input type="text" name="nim" value="<?php echo $_SESSION['nim'];  ?>" disabled></td>
             </tr>
             <tr>
               <td>Nama</td>
               <td>:</td>
-              <td><input type="text" readonly="readonly" name="nama" value="<?php echo $_SESSION['nama']; ?>" </td>
+              <td><input type="text" name="nama" value="<?php echo $_SESSION['nama'];  ?>" disabled></td>
             </tr>
             <tr>
               <td>Alasan Peminjaman</td>
@@ -88,7 +81,6 @@ include('config.php');
               <td>:</td>
               <td><input type="date" name="tanggal"> Waktu Mulai : <input type="time" name="mulai" min="08:00" max="19:00" step="1800"> Waktu Selesai : <input type="time" name="selesai" step="1800"></td>
             </tr>
-			<input type="hidden"  name="status" value="waiting" </td>
           </table>
 
           <?php
@@ -129,38 +121,16 @@ include('config.php');
           ?>
 
           <div>
-            <input type="checkbox" name="sk" value=""><a href="#contohModalKecil" data-toggle="modal" data-target="#contohModalKecil">Baca Syarat dan Ketentuan Peminjaman</a>
-			<div class="modal fade" id="contohModalKecil" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				<div class="modal-dialog modal-lg" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h4 class="modal-title" id="myModalLabel">Syarat & Ketentuan</h4>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						</div>
-						<div class="modal-body">
-							1. Mahasiswa atau karyawan aktif.<br> 
-							2. Penggunaan ruangan hanya untuk kegiatan internal kampus UPNVJ.<br>
-							3. Penggunaan ruangan hanya bisa sampai pukul 19.00.
-							<br>4. Segala kegiatan yang berlangsung dibawah pengawasan Universitas.
-						</div>
-					</div>
-				</div>
-			</div>
- 
-		  </div>
+            <input type="checkbox" name="sk" value=""> <a href="#">Baca Syarat dan Ketentuan Peminjaman</a>
+          </div>
           <br>
           
 
-          <button type="submit" name="kirim" class="btn btn-primary" style="width:10%;background-color:#008000;border:none;">KIRIM</button>
+          <button type="button" name="kirim" class="btn btn-primary" style="width:10%;background-color:#008000;border:none;">KIRIM</button>
         
         
         </form>
 
-<?php
-  for ($i=0; $i < 5; $i++) { 
-  ?>
-    <button id="apaja">Tombol <?php echo $i; ?></button>
-  <?php } ?>
       </div>
       <!-- /.container-fluid -->
 
