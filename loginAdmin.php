@@ -1,4 +1,5 @@
 <?php
+include('config.php');
 session_start();
 if(isset($_SESSION['username'])){
 	header('location: admin.php');
@@ -9,7 +10,6 @@ echo "Login Admin";
 $isi=ob_get_contents();
 ob_end_clean();
 
-include('config.php');
 include('head.php');
 ?>
 
@@ -44,12 +44,12 @@ include('head.php');
           }
         
           if (count($errors) == 0) {
-            $query = mysqli_query($db,"SELECT * FROM admin WHERE username='$username' AND password='$password'");
+            $query = mysqli_query($db,"SELECT * FROM t_admin WHERE f_username='$username' AND f_password='$password'");
             $cek=mysqli_num_rows($query);
             if ($cek == 1) {
               $data = mysqli_fetch_assoc($query);
               $id_user = $data['id_admin'];
-            $_SESSION['username'] = $username;
+              $_SESSION['username'] = $username;
               $_SESSION['id_user'] = $id_admin;
               $_SESSION['status']="admin";
               header('location: admin.php');
